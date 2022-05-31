@@ -63,7 +63,7 @@ const Home: NextPage<Props> = ({ posts, error } : Props) => {
             dataLength={currentPosts.length}
             loader={<p>Loading...</p>}
             next={fetch}
-            hasMore={currentPosts.length !== 100}
+            hasMore={false}
           >
             {
               currentPosts.map(el => (
@@ -94,6 +94,9 @@ export const getStaticProps : GetStaticProps<Props> = async (context) => {
       }
     }
   } catch (error: any) {
+    
+
+    console.log(error)
     return {
       props: {
         posts: [],

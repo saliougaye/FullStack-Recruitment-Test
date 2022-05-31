@@ -38,8 +38,8 @@ const EditPost = () => {
                 
                 const edited = await postService.editPost({
                     id: post.id,
-                    body: post.body,
-                    title: post.title,
+                    body: data.body,
+                    title: data.title,
                     userId: post.userId
                 });
 

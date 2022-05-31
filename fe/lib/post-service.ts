@@ -6,11 +6,13 @@ import { Post } from '../types/index';
 
 const postService = () => {
 
-    const url = 'https://jsonplaceholder.typicode.com';
+    const url = 'http://localhost:5000';
 
     const getPosts = async (start = 0, limit = 40) : Promise<Post[]> => {
 
         const response = await axios.get<Post[]>(`${url}/posts?_start=${start}&_limit=${limit}`);
+
+
 
         return response.data;
     }
