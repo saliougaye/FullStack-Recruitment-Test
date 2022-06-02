@@ -27,7 +27,11 @@ const postService =  () => {
     const insertPost = async (post: Post) => {
 
         const postCreated = await prisma.post.create({
-            data: post
+            data: {
+                title: post.title,
+                body: post.body,
+                userId: 1,
+            }
         });
 
         return postCreated;
@@ -38,7 +42,10 @@ const postService =  () => {
             where: {
                 id: post.id
             },
-            data: post
+            data: {
+                title: post.title,
+                body: post.body,
+            }
         });
     }
 
